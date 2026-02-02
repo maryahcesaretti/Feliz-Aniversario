@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pigeon Delivery 🕊️</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body class="center">
+  <div class="card">
+    <h1>Special Delivery 🕊️</h1>
+    <p>Tap the button and the pigeon will deliver your letter 💌</p>
+
+    <div class="sky">
+      <div id="pigeon" class="pigeon">🕊️</div>
+      <div class="letter-icon">💌</div>
+    </div>
+
+    <button class="btn" id="sendBtn" type="button">Send the pigeon</button>
+    <a class="btn ghost" href="/">Back</a>
+  </div>
+
+  <script>
+    const btn = document.getElementById("sendBtn");
+    const pigeon = document.getElementById("pigeon");
+
+    btn.addEventListener("click", () => {
+      btn.disabled = true;
+      btn.textContent = "Flying...";
+
+      pigeon.classList.add("fly");
+
+      // depois de 1.6s, abre a carta
+      setTimeout(() => {
+        window.location.href = "/letter";
+      }, 1600);
+    });
+  </script>
+</body>
+</html>
